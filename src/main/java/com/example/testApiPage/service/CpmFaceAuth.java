@@ -3,21 +3,12 @@ package com.example.testApiPage.service;
 import com.example.testApiPage.apiClient.driveServer.external.FaceAuthVrifyApiClient;
 import com.example.testApiPage.apiClient.strategy.savingResponse.SavingResponseForFaceAuth;
 import com.example.testApiPage.apiClient.strategy.settingRequest.SettingRequestForFaceAuth;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
 @Service
 public class CpmFaceAuth extends TestService{
-
-    // 호출할 ApiClient에 주입할 전략 패턴 객체: 요청 파라미터 세팅
-    @Autowired
-    SettingRequestForFaceAuth settingRequestForFaceAuth;
-
-    // 호출할 ApiClient에 주입할 전략 패턴 객체: 응답 파라미터 저장
-    @Autowired
-    SavingResponseForFaceAuth savingResponseForFaceAuth;
 
     public CpmFaceAuth(){
         super();
@@ -32,7 +23,8 @@ public class CpmFaceAuth extends TestService{
     @Override
     public void setApiClientList() {
         this.apiClientList = Arrays.asList(
-            new FaceAuthVrifyApiClient(settingRequestForFaceAuth, savingResponseForFaceAuth)
+            // 요청 파라미터를 세팅하는 전략과 응답 파라미터에서 저장하는 전략을 주입시킨다
+            new FaceAuthVrifyApiClient(new SettingRequestForFaceAuth(), new SavingResponseForFaceAuth())
         );
     }
 }
