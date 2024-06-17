@@ -4,7 +4,7 @@ import com.example.testApiPage.model.RequestParam;
 import com.example.testApiPage.model.ServiceModel;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("settingReqFaceAuth")
 public class SettingRequestForFaceAuth implements SettingRequest{
     @Override
     public void settingRequest(ServiceModel serviceModel, RequestParam requestParam) {

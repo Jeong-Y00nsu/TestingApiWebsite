@@ -12,20 +12,9 @@ import java.util.List;
 
 @Service
 public abstract class TestService {
-    private final List<ApiClient> apiClientList;
+    protected List<ApiClient> apiClientList;
 
     private ServiceModel serviceModel;
-
-    /**
-     * 매개변수 생성자
-     * <p>
-     *     생성하면서 주입받은 apiClientList를 필드를 초기화한다.
-     * </p>
-     * @param apiClientList 호출하게 되는 api 목록
-     */
-    public TestService(List<ApiClient> apiClientList){
-        this.apiClientList = apiClientList;
-    }
 
     /**
      * setApiClientListElement
@@ -55,7 +44,7 @@ public abstract class TestService {
      */
     public String execute(){
         // 모든 apiClient의 요청파라미터, 응답파라미터를 세팅하는 방법을 전략 패턴 클래스를 세팅
-        this.setApiClientStrategyList();
+        this.setApiClientList();
         ResponseParam responseParam = new ResponseParam();
         
         // 서비스를 이루는 api를 순차적으로 호출한다.
@@ -73,5 +62,5 @@ public abstract class TestService {
     }
 
     // 입력받은
-    public abstract void setApiClientStrategyList();
+    public abstract void setApiClientList();
 }

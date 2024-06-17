@@ -7,8 +7,9 @@ import com.example.testApiPage.model.ResponseParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("faceAuthVrifyApiClient")
 public class FaceAuthVrifyApiClient extends ApiClient {
+
     @Autowired
     public FaceAuthVrifyApiClient(SettingRequest settingRequest, SavingResponse savingResponse) {
         super(settingRequest, savingResponse);

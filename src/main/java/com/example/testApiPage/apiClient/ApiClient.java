@@ -4,6 +4,10 @@ import com.example.testApiPage.apiClient.strategy.savingResponse.SavingResponse;
 import com.example.testApiPage.apiClient.strategy.settingRequest.SettingRequest;
 import com.example.testApiPage.model.RequestParam;
 import com.example.testApiPage.model.ResponseParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
+import java.util.Set;
 
 public abstract class ApiClient {
 
